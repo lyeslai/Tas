@@ -1,0 +1,4 @@
+(lang dune 3.14)
+(name TyperTAS)
+(sections (lib .) (bin ../../bin) (doc ../../doc/TyperTAS))
+(files (lib (META dune-package opam)) (bin (TyperTAS)) (doc (README.md)))

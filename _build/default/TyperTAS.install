@@ -1,0 +1,11 @@
+lib: [
+  "_build/install/default/lib/TyperTAS/META"
+  "_build/install/default/lib/TyperTAS/dune-package"
+  "_build/install/default/lib/TyperTAS/opam"
+]
+bin: [
+  "_build/install/default/bin/TyperTAS"
+]
+doc: [
+  "_build/install/default/doc/TyperTAS/README.md"
+]

@@ -1,0 +1,5 @@
+(executable
+ (public_name TyperTAS)
+ (name main)
+ (libraries ast terms)) 
+

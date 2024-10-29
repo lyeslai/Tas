@@ -1,0 +1,5 @@
+(library
+ (name terms)
+ (modules terms)
+ (libraries ast))  
+
