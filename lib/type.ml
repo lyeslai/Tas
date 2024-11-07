@@ -16,7 +16,9 @@ let compteur_var_t : int ref = ref 0
 
 let nouvelle_var_t () : string = compteur_var := ! compteur_var + 1;
   "T"ˆ( string_of_int ! compteur_var )
-  type equa = (ptype * ptype) list
+
+
+  type equa = (ptype * ptype) list 
 
   type env = (string * ptype) list
 
@@ -49,7 +51,7 @@ let rec occur_check (v: string) (t : ptype) : bool =
   match t with 
   |Var x ->  x = v 
   |Arr (t1,t2) ->  occur_check v t1 || occur_check v t2 
-  |Nat -> t
+  |Nat -> false
 
 
 let rec substitue (v : string) (substitution : ptype) (t:ptype) : ptype = 
@@ -66,13 +68,50 @@ let rec substitue_equations (v: string) (substitution : ptype) (eq : equa) : pty
 let unification_step (eq : equa) : equa option = 
   match eq with 
   |[] -> Some [] 
-  |(t1,t2) :: rest if t1 = t2 then unification_step rest 
+  |(t1,t2) :: rest -> if t1 = t2 then unification_step rest 
   else 
     match (t1,t2) with
-    | (Var x, t) | (t , Var x) 
+    | (Var x, t) | (t , Var x) -> 
     if occur_check v t then 
       None 
     else
-      let sub_rest = substitue_equations v t rest in unification_step sub_rest 
+      let sub_rest = substitue_equations v t rest in 
+      (match unification_step sub_rest with 
+      |Some r -> Some ((Var x,t) :: result)
+      |None -> None) 
     | Arr(tga , tgr), Arr(tda, tdr) ->
-      let nouvelle_eq = (tga , tgr) :: (tda , tdr ) :: rest in unification_step nouvelle_eq
+      unification_step ((tga,tda) :: (tgr,tdr) :: rest)
+    | _ -> None 
+
+let rec unification (eq : equa) : equa option = 
+  match unification_step eq with 
+  |Some [] -> Some []
+  |Some new_eq when new_eq = eq -> Some new_eq
+  |Some new_eq -> unification new_eq
+  |None -> None
+
+
+exception Timeout
+
+let rec resoudre_equations (equations : equa) (etapes_restantes : int) : equa option = 
+  if etapes_restantes <= 0 then 
+    raise Timeout
+else  
+  match unification_step etapes_restantes with 
+  |Some [] -> Some []
+  |Some new_eq when new_eq = etapes_restantes -> Some new_eq
+  |Some new_eq -> resoudre_equations new_eq (etapes_restantes - 1)
+  |None -> None
+
+let inferer_type (term : pterm) (env : env) (limit : int) : ptype option =
+  let t = Var (nouvelle_var_t()) in
+  let equations = genere_equa term t env in
+  try
+    match resoudre_equations equations limit with
+    | None -> print_endline "Échec de l'unification des équations"; None
+    | Some eqs -> 
+        let final_type = appliquer_substitution eqs t in
+        Some final_type
+  with
+  | Timeout -> print_endline "Timeout atteint lors de l'unification"; None
+  

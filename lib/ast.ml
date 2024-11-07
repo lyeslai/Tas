@@ -38,7 +38,6 @@ let  alphaconv (t : pterm) : pterm =
             Abs (new_var, alphaconv_aux body new_var_mapping)
 
 
-            (*Les ajouts*)
         | Nat -> _ p_aux
         | Add (t1, t2) -> Add (alphaconv_aux t1 var_mapping, alphaconv_aux t2 var_mapping)
         | Sub (t1, t2) -> Sub (alphaconv_aux t1 var_mapping, alphaconv_aux t2 var_mapping)
@@ -71,8 +70,6 @@ let rec substitution (x : string) (n : pterm) (t: pterm) : pterm =
         if v = x then Abs(v , body)
         else 
 
-            (*la condition de variable libre généré par AI *)
-
              (* Si v est une variable libre dans n, on doit éviter la capture. *)
         if substitution v (Var v) n <> n then
             (* On renomme la variable liée pour éviter la capture. *)
@@ -83,7 +80,7 @@ let rec substitution (x : string) (n : pterm) (t: pterm) : pterm =
             (* Sinon, on applique la substitution directement dans le corps. *)
             Abs (v, substitution x n body)
 
-            (*Les Ajouts *)
+
 
 
     | Nat _ -> t
