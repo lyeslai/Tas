@@ -1,5 +1,9 @@
 (library
  (name terms)
- (modules terms)
+ (modules Terms)
  (libraries ast))  
 
+(test
+ (name test_type)
+ (libraries ast type terms)
+ (modules test_type))

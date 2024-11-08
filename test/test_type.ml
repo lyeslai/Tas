@@ -1,5 +1,6 @@
-open Ast  (* Assurez-vous que `Ast` est correctement importé *)
-open Type  (* Remplacez par le nom du fichier contenant les fonctions d'inférence *)
+open Ast
+open Type
+
 
 let env = []  (* Environnement vide *)
 

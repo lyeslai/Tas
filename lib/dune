@@ -1,3 +1,8 @@
 (library
  (name ast)
  (modules Ast))
+
+(library
+ (name type)
+ (modules Type)
+ (libraries ast))  ;; Indique que `type` dépend de `ast`
