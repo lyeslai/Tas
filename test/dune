@@ -1,9 +1,16 @@
 (library
  (name terms)
  (modules Terms)
- (libraries ast))  
+ (libraries ast))
 
 (test
  (name test_type)
  (libraries ast type terms)
- (modules test_type))
+ (modules test_type)
+ )
+
+(test
+ (name test_evaluateur)
+ (libraries ast type terms)
+ (modules test_evaluateur)
+)

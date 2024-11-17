@@ -2,7 +2,7 @@
 # OCAMLPARAM: unset
 # Shared cache: disabled
 # Shared cache location: /home/lyeslai/.cache/dune/db
-# Workspace root: /home/lyeslai/Documents/TyperTAS
+# Workspace root: /home/lyeslai/Documents/Tas
 # Auto-detected concurrency: 12
 # Dune context:
 #  { name = "default"
@@ -11,10 +11,41 @@
 #  ; merlin = true
 #  ; fdo_target_exe = None
 #  ; build_dir = In_build_dir "default"
+#  ; installed_env =
+#      map
+#        { "INSIDE_DUNE" : "/home/lyeslai/Documents/Tas/_build/default"
+#        ; "OCAML_COLOR" : "always"
+#        ; "OPAMCOLOR" : "always"
+#        }
 #  ; instrument_with = []
 #  }
-$ /usr/bin/ocamlc.opt -config > /tmp/dune_e87f9c_output
-$ (cd _build/default && /usr/bin/ocamlopt.opt -w @1..3@5..28@31..39@43@46..47@49..57@61..62@67@69-40 -strict-sequence -strict-formats -short-paths -keep-locs -g -I bin/.main.eobjs/byte -I bin/.main.eobjs/native -I lib/.ast.objs/byte -I lib/.ast.objs/native -I test/.terms.objs/byte -I test/.terms.objs/native -intf-suffix .ml -no-alias-deps -opaque -o bin/.main.eobjs/native/dune__exe__Main.cmx -c -impl bin/main.ml)
-> File "bin/main.ml", line 3, characters 5-9:
-> Error: Unbound module Type
+$ /usr/bin/ocamlc.opt -config > /tmp/dune_2c938e_output
+$ (cd _build/default && /usr/bin/ocamlc.opt -w @1..3@5..28@31..39@43@46..47@49..57@61..62@67@69-40 -strict-sequence -strict-formats -short-paths -keep-locs -g -bin-annot -I lib/.ast.objs/byte -no-alias-deps -opaque -o lib/.ast.objs/byte/ast.cmo -c -impl lib/ast.ml)
+$ (cd _build/default && /usr/bin/ocamlc.opt -w @1..3@5..28@31..39@43@46..47@49..57@61..62@67@69-40 -strict-sequence -strict-formats -short-paths -keep-locs -g -a -o lib/ast.cma lib/.ast.objs/byte/ast.cmo)
+$ (cd _build/default && /usr/bin/ocamlc.opt -w @1..3@5..28@31..39@43@46..47@49..57@61..62@67@69-40 -strict-sequence -strict-formats -short-paths -keep-locs -g -bin-annot -I test/.terms.objs/byte -I lib/.ast.objs/byte -no-alias-deps -opaque -o test/.terms.objs/byte/terms.cmo -c -impl test/terms.ml)
+$ (cd _build/default && /usr/bin/ocamlc.opt -w @1..3@5..28@31..39@43@46..47@49..57@61..62@67@69-40 -strict-sequence -strict-formats -short-paths -keep-locs -g -a -o test/terms.cma test/.terms.objs/byte/terms.cmo)
+$ (cd _build/default && /usr/bin/ocamlc.opt -w @1..3@5..28@31..39@43@46..47@49..57@61..62@67@69-40 -strict-sequence -strict-formats -short-paths -keep-locs -g -bin-annot -I lib/.type.objs/byte -I lib/.ast.objs/byte -no-alias-deps -opaque -o lib/.type.objs/byte/type.cmo -c -impl lib/type.ml)
+$ (cd _build/default && /usr/bin/ocamlopt.opt -w @1..3@5..28@31..39@43@46..47@49..57@61..62@67@69-40 -strict-sequence -strict-formats -short-paths -keep-locs -g -I test/.terms.objs/byte -I test/.terms.objs/native -I lib/.ast.objs/byte -I lib/.ast.objs/native -intf-suffix .ml -no-alias-deps -opaque -o test/.terms.objs/native/terms.cmx -c -impl test/terms.ml)
+$ (cd _build/default && /usr/bin/ocamlc.opt -w @1..3@5..28@31..39@43@46..47@49..57@61..62@67@69-40 -strict-sequence -strict-formats -short-paths -keep-locs -g -a -o lib/type.cma lib/.type.objs/byte/type.cmo)
+$ (cd _build/default && /usr/bin/ocamlc.opt -w @1..3@5..28@31..39@43@46..47@49..57@61..62@67@69-40 -strict-sequence -strict-formats -short-paths -keep-locs -g -bin-annot -I bin/.main.eobjs/byte -I lib/.ast.objs/byte -I lib/.type.objs/byte -I test/.terms.objs/byte -no-alias-deps -opaque -o bin/.main.eobjs/byte/dune__exe__Main.cmi -c -intf bin/main.mli)
+$ (cd _build/default && /usr/bin/ocamlc.opt -w @1..3@5..28@31..39@43@46..47@49..57@61..62@67@69-40 -strict-sequence -strict-formats -short-paths -keep-locs -g -bin-annot -I test/.test_type.eobjs/byte -I lib/.ast.objs/byte -I lib/.type.objs/byte -I test/.terms.objs/byte -no-alias-deps -opaque -o test/.test_type.eobjs/byte/dune__exe__Test_type.cmi -c -intf test/test_type.mli)
+$ (cd _build/default && /usr/bin/ocamlc.opt -w @1..3@5..28@31..39@43@46..47@49..57@61..62@67@69-40 -strict-sequence -strict-formats -short-paths -keep-locs -g -bin-annot -I test/.test_evaluateur.eobjs/byte -I lib/.ast.objs/byte -I lib/.type.objs/byte -I test/.terms.objs/byte -no-alias-deps -opaque -o test/.test_evaluateur.eobjs/byte/dune__exe__Test_evaluateur.cmi -c -intf test/test_evaluateur.mli)
+$ (cd _build/default && /usr/bin/ocamlopt.opt -w @1..3@5..28@31..39@43@46..47@49..57@61..62@67@69-40 -strict-sequence -strict-formats -short-paths -keep-locs -g -I lib/.ast.objs/byte -I lib/.ast.objs/native -intf-suffix .ml -no-alias-deps -opaque -o lib/.ast.objs/native/ast.cmx -c -impl lib/ast.ml)
+$ (cd _build/default && /usr/bin/ocamlopt.opt -w @1..3@5..28@31..39@43@46..47@49..57@61..62@67@69-40 -strict-sequence -strict-formats -short-paths -keep-locs -g -a -o test/terms.cmxa test/.terms.objs/native/terms.cmx)
+$ (cd _build/default && /usr/bin/ocamlopt.opt -w @1..3@5..28@31..39@43@46..47@49..57@61..62@67@69-40 -strict-sequence -strict-formats -short-paths -keep-locs -g -I test/.test_evaluateur.eobjs/byte -I test/.test_evaluateur.eobjs/native -I lib/.ast.objs/byte -I lib/.ast.objs/native -I lib/.type.objs/byte -I lib/.type.objs/native -I test/.terms.objs/byte -I test/.terms.objs/native -intf-suffix .ml -no-alias-deps -opaque -o test/.test_evaluateur.eobjs/native/dune__exe__Test_evaluateur.cmx -c -impl test/test_evaluateur.ml)
+> File "test/test_evaluateur.ml", line 28, characters 19-39:
+> 28 |   let term = List [Nat 1; Nat 2; Nat 3] in
+>                         ^^^^^^^^^^^^^^^^^^^^
+> Error: This variant expression is expected to have type ptype
+>        There is no constructor :: within type ptype
 [2]
+$ (cd _build/default && /usr/bin/ocamlopt.opt -w @1..3@5..28@31..39@43@46..47@49..57@61..62@67@69-40 -strict-sequence -strict-formats -short-paths -keep-locs -g -I bin/.main.eobjs/byte -I bin/.main.eobjs/native -I lib/.ast.objs/byte -I lib/.ast.objs/native -I lib/.type.objs/byte -I lib/.type.objs/native -I test/.terms.objs/byte -I test/.terms.objs/native -intf-suffix .ml -no-alias-deps -opaque -o bin/.main.eobjs/native/dune__exe__Main.cmx -c -impl bin/main.ml)
+$ (cd _build/default && /usr/bin/ocamlopt.opt -w @1..3@5..28@31..39@43@46..47@49..57@61..62@67@69-40 -strict-sequence -strict-formats -short-paths -keep-locs -g -I test/.test_type.eobjs/byte -I test/.test_type.eobjs/native -I lib/.ast.objs/byte -I lib/.ast.objs/native -I lib/.type.objs/byte -I lib/.type.objs/native -I test/.terms.objs/byte -I test/.terms.objs/native -intf-suffix .ml -no-alias-deps -opaque -o test/.test_type.eobjs/native/dune__exe__Test_type.cmx -c -impl test/test_type.ml)
+$ (cd _build/default && /usr/bin/ocamlopt.opt -w @1..3@5..28@31..39@43@46..47@49..57@61..62@67@69-40 -strict-sequence -strict-formats -short-paths -keep-locs -g -a -o lib/ast.cmxa lib/.ast.objs/native/ast.cmx)
+$ (cd _build/default && /usr/bin/ocamlopt.opt -w @1..3@5..28@31..39@43@46..47@49..57@61..62@67@69-40 -strict-sequence -strict-formats -short-paths -keep-locs -g -I lib/.type.objs/byte -I lib/.type.objs/native -I lib/.ast.objs/byte -I lib/.ast.objs/native -intf-suffix .ml -no-alias-deps -opaque -o lib/.type.objs/native/type.cmx -c -impl lib/type.ml)
+$ (cd _build/default && /usr/bin/ocamlopt.opt -w @1..3@5..28@31..39@43@46..47@49..57@61..62@67@69-40 -strict-sequence -strict-formats -short-paths -keep-locs -g -a -o lib/type.cmxa lib/.type.objs/native/type.cmx)
+$ (cd _build/default && /usr/bin/ocamlopt.opt -w @1..3@5..28@31..39@43@46..47@49..57@61..62@67@69-40 -strict-sequence -strict-formats -short-paths -keep-locs -g -shared -linkall -I test -o test/terms.cmxs test/terms.cmxa)
+$ (cd _build/default && /usr/bin/ocamlopt.opt -w @1..3@5..28@31..39@43@46..47@49..57@61..62@67@69-40 -strict-sequence -strict-formats -short-paths -keep-locs -g -shared -linkall -I lib -o lib/ast.cmxs lib/ast.cmxa)
+$ (cd _build/default && /usr/bin/ocamlopt.opt -w @1..3@5..28@31..39@43@46..47@49..57@61..62@67@69-40 -strict-sequence -strict-formats -short-paths -keep-locs -g -shared -linkall -I lib -o lib/type.cmxs lib/type.cmxa)
+$ (cd _build/default && /usr/bin/ocamlopt.opt -w @1..3@5..28@31..39@43@46..47@49..57@61..62@67@69-40 -strict-sequence -strict-formats -short-paths -keep-locs -g -o test/test_type.exe lib/ast.cmxa lib/type.cmxa test/terms.cmxa test/.test_type.eobjs/native/dune__exe__Test_type.cmx)
+$ (cd _build/default && /usr/bin/ocamlopt.opt -w @1..3@5..28@31..39@43@46..47@49..57@61..62@67@69-40 -strict-sequence -strict-formats -short-paths -keep-locs -g -o bin/main.exe lib/ast.cmxa lib/type.cmxa test/terms.cmxa bin/.main.eobjs/native/dune__exe__Main.cmx)
